@@ -1,0 +1,88 @@
+/* Full background image */
+.parallax-1 {
+  background: url('/images/testimonials-bg.jpg') center / cover no-repeat;
+  position: relative;
+}
+
+/* Dark overlay */
+.parallax-1::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+/* Slider container */
+.testimonials-container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+/* Swiper sizing */
+.testimonials-slider {
+  width: 100%;
+  max-width: 1100px;
+  margin: auto;
+  padding: 60px 20px;
+}
+
+/* Slide content */
+.testimonial-slide {
+  color: #fff;
+}
+
+/* Icon */
+.hexagon.small {
+  margin: 0 auto 30px;
+}
+
+/* Quote text */
+.testimonial-text {
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto 25px;
+}
+
+/* Author */
+.testimonial-author {
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Swiper arrows (centered vertically like image) */
+swiper-container::part(button-prev),
+swiper-container::part(button-next) {
+  color: #fff;
+  width: 44px;
+  height: 44px;
+}
+
+swiper-container::part(button-prev) {
+  left: 40px;
+}
+
+swiper-container::part(button-next) {
+  right: 40px;
+}
+
+swiper-container::part(button-prev):hover,
+swiper-container::part(button-next):hover {
+  color: #ffb400;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .testimonial-text {
+    font-size: 16px;
+  }
+
+  swiper-container::part(button-prev),
+  swiper-container::part(button-next) {
+    display: none;
+  }
+}

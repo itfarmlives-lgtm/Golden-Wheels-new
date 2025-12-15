@@ -1,0 +1,169 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "goldenwheels": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "src/main.ts",
+            "polyfills": ["zone.js"],
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
+            "styles": [
+              "public/style/reset.css",
+              "public/style/superfish.css",
+              "public/style/jquery.qtip.css",
+              "public/style/style.css",
+              "public/style/animations.css",
+              "public/style/responsive.css",
+              "public/style/odometer-theme-default.css",
+
+              "public/fonts/streamline-small/style.css",
+              "public/fonts/template/styles.css",
+              "public/fonts/social/styles.css",
+              "src/styles.scss"
+            ],
+            "scripts": [
+              "public/js/jquery-3.6.0.min.js",
+
+              "public/rs-plugin/js/jquery.themepunch.tools.min.js",
+              "public/rs-plugin/js/jquery.themepunch.revolution.min.js",
+
+              "public/js/jquery.ba-bbq.min.js",
+              "public/js/jquery-ui-1.12.1.custom.min.js",
+              "public/js/jquery.ui.touch-punch.min.js",
+              "public/js/jquery.isotope.min.js",
+              "public/js/jquery.easing.1.4.1.min.js",
+              "public/js/jquery.carouFredSel-6.2.1-packed.js",
+              "public/js/jquery.touchSwipe.min.js",
+              "public/js/jquery.transit.min.js",
+              "public/js/jquery.hint.min.js",
+              "public/js/jquery.costCalculator.min.js",
+              "public/js/jquery.prettyPhoto.js",
+              "public/js/jquery.qtip.min.js",
+              "public/js/jquery.blockUI.min.js",
+              "public/js/jquery.imagesloaded-packed.js",
+
+              "public/js/odometer.min.js",
+              "public/js/main.js"
+            ],
+
+            "server": "src/main.server.ts",
+            "outputMode": "server",
+            "ssr": {
+              "entry": "src/server.ts"
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "goldenwheels:build:production"
+            },
+            "development": {
+              "buildTarget": "goldenwheels:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular/build:extract-i18n"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "polyfills": ["zone.js", "zone.js/testing"],
+            "tsConfig": "tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
+            "styles": [
+              "public/style/reset.css",
+              "public/style/superfish.css",
+              "public/style/jquery.qtip.css",
+              "public/style/style.css",
+              "public/style/animations.css",
+              "public/style/responsive.css",
+              "public/style/odometer-theme-default.css",
+
+              "public/fonts/streamline-small/style.css",
+              "public/fonts/template/styles.css",
+              "public/fonts/social/styles.css",
+              "src/styles.scss"
+            ],
+            "scripts": [
+              "public/js/jquery-3.6.0.min.js",
+
+              "public/rs-plugin/js/jquery.themepunch.tools.min.js",
+              "public/rs-plugin/js/jquery.themepunch.revolution.min.js",
+
+              "public/js/jquery.ba-bbq.min.js",
+              "public/js/jquery-ui-1.12.1.custom.min.js",
+              "public/js/jquery.ui.touch-punch.min.js",
+              "public/js/jquery.isotope.min.js",
+              "public/js/jquery.easing.1.4.1.min.js",
+              "public/js/jquery.carouFredSel-6.2.1-packed.js",
+              "public/js/jquery.touchSwipe.min.js",
+              "public/js/jquery.transit.min.js",
+              "public/js/jquery.hint.min.js",
+              "public/js/jquery.costCalculator.min.js",
+              "public/js/jquery.prettyPhoto.js",
+              "public/js/jquery.qtip.min.js",
+              "public/js/jquery.blockUI.min.js",
+              "public/js/jquery.imagesloaded-packed.js",
+
+              "public/js/odometer.min.js",
+              "public/js/main.js"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

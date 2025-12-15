@@ -1,0 +1,31 @@
+.modern-faq li {
+  border-bottom: 1px solid #e6e6e6;
+  padding: 15px 0;
+}
+
+.faq-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.faq-header h4 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.faq-header .icon {
+  font-size: 22px;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.modern-faq li.active .icon {
+  transform: rotate(180deg);
+}
+
+.faq-content {
+  overflow: hidden;
+  color: #555;
+}
